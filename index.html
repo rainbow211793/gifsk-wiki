@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gifsk Wiki - Free Encyclopedia</title>
+    <meta name="description" content="Gifsk Wiki - A free and editable encyclopedia powered by Gifsk community. Share knowledge about Gifstad, Gifsk, Argn Quest and more.">
+    <meta name="keywords" content="Gifsk, wiki, encyclopedia, Gifstad, Argn Quest, community">
+    <meta name="author" content="Gifsk Community">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Gifsk Wiki - Free Encyclopedia">
+    <meta property="og:description" content="A free and editable encyclopedia powered by Gifsk community.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Gifsk</h1>
+                <span class="tagline">Free Encyclopedia</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="mainSearch" placeholder="Search articles..." class="search-input">
+                <button class="search-btn">Search</button>
+            </div>
+            <div class="nav-links">
+                <a href="javascript:void(0)" onclick="showHome(); return false;">Home</a>
+                <a href="javascript:void(0)" onclick="listArticles(); return false;">Articles</a>
+                <!-- Help removed for release -->
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3>Browse</h3>
+                <ul>
+                    <li><a href="javascript:void(0)" onclick="showHome(); return false;">Home</a></li>
+                    <li><a href="javascript:void(0)" onclick="listArticles(); return false;">All Articles</a></li>
+                    <li><a href="javascript:void(0)" onclick="showCategories(); return false;">Categories</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3>Tools</h3>
+                <ul>
+                    <li><a href="javascript:void(0)" onclick="showRecent(); return false;">Recent Changes</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div id="viewContainer" class="view-container">
+                <!-- Home view -->
+            </div>
+            
+            <!-- Article View -->
+            <div id="articleView" class="article-view hidden">
+                <div class="article-page-grid">
+                    <section class="article-main">
+                        <div class="article-header">
+                            <h1 id="articleTitle"></h1>
+                            <div class="article-meta">
+                                <span id="articleCategory" class="category-tag"></span>
+                                <span id="articleLastEdit" class="last-edit"></span>
+                            </div>
+                        </div>
+
+                        <div id="articleContent" class="article-content"></div>
+                    </section>
+
+                    <aside class="article-sidebar">
+                        <img id="sidebarImage" class="sidebar-image" src="" alt="Sidebar Image">
+                        <h2 id="sidebarTitle">Infobox</h2>
+                        <div id="sidebarArticleInfo">
+                            <p><strong>Category:</strong> <span id="sidebarCategory">-</span></p>
+                            <p><strong>Created:</strong> <span id="sidebarCreated">-</span></p>
+                            <p><strong>Last updated:</strong> <span id="sidebarUpdated">-</span></p>
+                            <p><strong>Updated by:</strong> <span id="sidebarEditor">-</span></p>
+                            <div id="sidebarCustomFields"></div>
+                        </div>
+                    </aside>
+                </div>
+
+                <!-- Media Gallery in Article -->
+                <div id="articleMediaSection" class="article-media-section">
+                    <h2>Media in this article</h2>
+                    <div id="articleMediaList" class="media-grid"></div>
+                </div>
+            </div>
+
+            <!-- Articles List View -->
+            <div id="articlesListView" class="articles-list hidden">
+                <h1>All Articles</h1>
+                <div class="articles-filter">
+                    <input type="text" id="articlesSearch" placeholder="Search articles..." class="search-bar" onkeyup="filterArticles()">
+                    <select id="categoryFilter" class="category-select" onchange="filterArticles()">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+                <div id="articlesList" class="articles-table"></div>
+            </div>
+
+            <!-- Categories View -->
+            <div id="categoriesView" class="categories-view hidden">
+                <h1>Categories</h1>
+                <div id="categoriesList" class="categories-grid"></div>
+            </div>
+
+            <!-- Help view removed for release -->
+
+        </main>
+    </div>
+
+    <!-- Modal for media preview -->
+    <div id="mediaModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeMediaModal()">&times;</span>
+            <div id="modalMediaContainer"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Gifsk Wiki. All content available under open license. <a href="#" onclick="alert('Powered by Gifsk Framework')">About</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

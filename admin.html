@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gifsk Wiki - Admin Panel</title>
+    <meta name="description" content="Gifsk Wiki Admin - Manage pages, edit JSON, and control the wiki.">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Gifsk Admin</h1>
+                <span class="tagline">Admin Control Panel</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="mainSearch" placeholder="Search articles..." class="search-input">
+                <button class="search-btn">Search</button>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" target="_blank" rel="noopener">Public Wiki</a>
+                <a href="javascript:void(0)" onclick="showHome(); return false;">Home</a>
+                <a href="javascript:void(0)" onclick="listArticles(); return false;">Articles</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3>Admin</h3>
+                <ul>
+                    <li><a href="javascript:void(0)" onclick="showHome(); return false;">Dashboard</a></li>
+                    <li><a href="javascript:void(0)" onclick="showCategories(); return false;">Browse Categories</a></li>
+                    <li><a href="javascript:void(0)" onclick="listArticles(); return false;">All Articles</a></li>
+                    <li><a href="javascript:void(0)" onclick="showManageCategories(); return false;">Manage Categories</a></li>
+                    <li><a href="javascript:void(0)" onclick="showJSONEditor(); return false;">Edit JSON</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h3>Tools</h3>
+                <ul>
+                    <li><a href="javascript:void(0)" onclick="createNewArticle(); return false;">Create Article</a></li>
+                    <li><a href="javascript:void(0)" onclick="showRecent(); return false;">Recent Changes</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div id="viewContainer" class="view-container">
+                <!-- Home view -->
+            </div>
+            
+            <!-- Article View -->
+            <div id="articleView" class="article-view hidden">
+                <div class="article-page-grid">
+                    <section class="article-main">
+                        <div class="article-header">
+                            <h1 id="articleTitle"></h1>
+                            <div class="article-meta">
+                                <span id="articleCategory" class="category-tag"></span>
+                                <span id="articleLastEdit" class="last-edit"></span>
+                            </div>
+                        </div>
+
+                        <div id="articleToolbar" class="article-toolbar">
+                            <button id="editBtn" class="btn btn-primary" onclick="editArticle()">Edit</button>
+                            <button id="viewBtn" class="btn btn-secondary" onclick="viewArticle()" style="display:none;">View</button>
+                            <button id="saveBtn" class="btn btn-success" onclick="saveArticle()" style="display:none;">Save</button>
+                            <button id="cancelBtn" class="btn btn-danger" onclick="cancelEdit()" style="display:none;">Cancel</button>
+                            <button class="btn btn-danger" onclick="deleteArticle()">Delete</button>
+                        </div>
+
+                        <div id="articleContent" class="article-content"></div>
+                        <pre id="articleMarkdownSource" class="article-markdown-source hidden"></pre>
+
+                        <div id="editorToolbar" class="editor-toolbar hidden">
+                            <button type="button" class="btn btn-secondary" onclick="applyMarkdownFormat('bold')">Bold</button>
+                            <button type="button" class="btn btn-secondary" onclick="applyMarkdownFormat('italic')">Italic</button>
+                            <button type="button" class="btn btn-secondary" onclick="applyMarkdownFormat('heading')">H</button>
+                            <button type="button" class="btn btn-secondary" onclick="applyMarkdownFormat('link')">Link</button>
+                            <button type="button" class="btn btn-secondary" onclick="toggleArgnAutocomplete()">Wiki Link</button>
+                            <button type="button" class="btn btn-secondary" onclick="applyMarkdownFormat('image')">Image</button>
+                            <button type="button" class="btn btn-secondary" onclick="applyMarkdownFormat('code')">Code</button>
+                            <button type="button" class="btn btn-secondary" onclick="applyMarkdownFormat('quote')">Quote</button>
+                            <button type="button" class="btn btn-secondary" onclick="applyMarkdownFormat('list')">List</button>
+                        </div>
+                        <div id="argnAutocomplete" class="argn-autocomplete hidden">
+                            <input id="argnSearchInput" type="text" placeholder="Search local wiki + external..." autocomplete="off">
+                            <ul id="argnSuggestionList"></ul>
+                        </div>
+
+                        <textarea id="editContent" class="edit-textarea hidden"></textarea>
+                    </section>
+
+                    <aside class="article-sidebar">
+                        <img id="sidebarImage" class="sidebar-image" src="" alt="Sidebar Image">
+                        <h2 id="sidebarTitle">Infobox</h2>
+                        <div id="sidebarArticleInfo">
+                            <p><strong>Category:</strong> <span id="sidebarCategory">-</span></p>
+                            <p><strong>Created:</strong> <span id="sidebarCreated">-</span></p>
+                            <p><strong>Last updated:</strong> <span id="sidebarUpdated">-</span></p>
+                            <p><strong>Updated by:</strong> <span id="sidebarEditor">-</span></p>
+                            <div id="sidebarCustomFields"></div>
+                        </div>
+                        <button id="editSidebarBtn" class="btn btn-secondary" style="width: 100%; margin-top: 10px; font-size: 12px;" onclick="toggleSidebarEdit()">Edit Sidebar</button>
+                        <div id="sidebarEditPanel" class="sidebar-edit-panel hidden">
+                            <input id="sidebarImageInput" class="sidebar-edit-input" type="text" placeholder="Image URL...">
+                            <div id="sidebarFieldsEdit"></div>
+                            <button class="btn btn-secondary" style="width: 100%; margin-top: 5px; font-size: 11px;" onclick="addSidebarField()">+ Add Field</button>
+                            <button id="saveSidebarBtn" class="btn btn-success" style="width: 100%; margin-top: 5px; font-size: 12px;" onclick="saveSidebarEdit()">Save</button>
+                        </div>
+                    </aside>
+                </div>
+
+                <!-- Media Gallery in Article -->
+                <div id="articleMediaSection" class="article-media-section">
+                    <h2>Media in this article</h2>
+                    <div id="articleMediaList" class="media-grid"></div>
+                </div>
+            </div>
+
+            <!-- Categories View -->
+            <div id="categoriesView" class="categories-view hidden">
+                <h1>Categories</h1>
+                <div id="categoriesList" class="categories-grid"></div>
+            </div>
+
+            <!-- Articles List View -->
+            <div id="articlesListView" class="articles-list hidden">
+                <h1>All Articles</h1>
+                <div class="articles-filter">
+                    <input type="text" id="articlesSearch" placeholder="Search articles..." class="search-bar" onkeyup="filterArticles()">
+                    <select id="categoryFilter" class="category-select" onchange="filterArticles()">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+                <div id="articlesList" class="articles-table"></div>
+            </div>
+
+            <!-- JSON Editor View -->
+            <div id="jsonEditorView" class="json-editor-view hidden">
+                <h1>JSON Editor</h1>
+                <div style="margin-bottom: 10px;">
+                    <button class="btn btn-primary" onclick="downloadJSON()">Download JSON</button>
+                    <button class="btn btn-success" onclick="applyJSON()">Apply Changes</button>
+                    <button class="btn btn-secondary" onclick="listArticles()">Cancel</button>
+                </div>
+                <textarea id="jsonEditor" style="width: 100%; height: 600px; font-family: 'Courier New', monospace; background-color: #0d1731; color: #e0e0e0; border: 1px solid #3a5a7a; padding: 10px; border-radius: 4px;"></textarea>
+            </div>
+
+            <!-- Create Article View -->
+            <div id="createView" class="create-view hidden">
+                <h1>Create New Article</h1>
+                <form onsubmit="submitNewArticle(event)">
+                    <div class="form-group">
+                        <label for="newTitle">Article Title *</label>
+                        <input type="text" id="newTitle" required placeholder="Enter article title">
+                    </div>
+                    <div class="form-group">
+                        <label for="newCategory">Category</label>
+                        <input type="text" id="newCategory" placeholder="e.g., Gifstad, Gifsk, History">
+                    </div>
+                    <div class="form-group">
+                        <label for="newContent">Content (Markdown supported)</label>
+                        <div class="editor-toolbar">
+                            <button type="button" class="btn btn-secondary" onclick="applyMarkdownFormat('bold', 'newContent')">Bold</button>
+                            <button type="button" class="btn btn-secondary" onclick="applyMarkdownFormat('italic', 'newContent')">Italic</button>
+                            <button type="button" class="btn btn-secondary" onclick="applyMarkdownFormat('heading', 'newContent')">H</button>
+                            <button type="button" class="btn btn-secondary" onclick="applyMarkdownFormat('link', 'newContent')">Link</button>
+                            <button type="button" class="btn btn-secondary" onclick="applyMarkdownFormat('image', 'newContent')">Image</button>
+                            <button type="button" class="btn btn-secondary" onclick="applyMarkdownFormat('code', 'newContent')">Code</button>
+                            <button type="button" class="btn btn-secondary" onclick="applyMarkdownFormat('quote', 'newContent')">Quote</button>
+                            <button type="button" class="btn btn-secondary" onclick="applyMarkdownFormat('list', 'newContent')">List</button>
+                        </div>
+                        <textarea id="newContent" placeholder="Write your article here... Supports markdown!" style="height: 400px;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Create Article</button>
+                    <button type="button" class="btn btn-secondary" onclick="cancelCreate()">Cancel</button>
+                </form>
+            </div>
+
+            <!-- Manage Categories View -->
+            <div id="manageCategoriesView" class="articles-list hidden">
+                <h1>Manage Categories</h1>
+                <p style="color: #a0b0d0; margin-bottom: 20px;">Edit category names and emojis</p>
+                <div id="categoriesManagerList" style="display: grid; gap: 15px;"></div>
+            </div>
+
+            <!-- Folder Browser View -->
+            <div id="folderView" class="articles-list hidden">
+                <h1 id="folderTitle">Folder</h1>
+                <div id="folderTree" style="margin-bottom: 20px;"></div>
+                <div id="folderContents"></div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Modal for media preview -->
+    <div id="mediaModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeMediaModal()">&times;</span>
+            <div id="modalMediaContainer"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Gifsk Wiki Admin. <a href="index.html" target="_blank" rel="noopener">Back to Public Wiki</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="admin-script.js"></script>
+</body>
+</html>
