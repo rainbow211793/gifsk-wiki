@@ -482,6 +482,29 @@ function viewArticle() {
     if (_articleCategoryEl) _articleCategoryEl.className = 'category-tag';
     safeSetText('articleLastEdit', `Last edited: ${formatDate(article.lastModified)}`);
 
+    // Add/share button so users can copy a link that will open the SPA (hash-based)
+    try {
+        const header = document.querySelector('.article-header');
+        if (header) {
+            let shareBtn = document.getElementById('shareArticleBtn');
+            if (!shareBtn) {
+                shareBtn = document.createElement('button');
+                shareBtn.id = 'shareArticleBtn';
+                shareBtn.className = 'btn btn-secondary';
+                shareBtn.style.marginLeft = '8px';
+                shareBtn.textContent = 'Share';
+                shareBtn.onclick = () => copyArticleLink(currentArticlePath);
+                const meta = header.querySelector('.article-meta');
+                if (meta) meta.appendChild(shareBtn);
+                else header.appendChild(shareBtn);
+            } else {
+                shareBtn.onclick = () => copyArticleLink(currentArticlePath);
+            }
+        }
+    } catch (e) {
+        // non-fatal
+    }
+
     // Set sidebar image
     const sidebarImage = document.getElementById('sidebarImage');
     if (sidebarImage) {
@@ -557,6 +580,27 @@ function viewArticle() {
     if (saveBtnEl) saveBtnEl.style.display = 'none';
     const cancelBtnEl = document.getElementById('cancelBtn');
     if (cancelBtnEl) cancelBtnEl.style.display = 'none';
+}
+
+function copyArticleLink(path) {
+    if (!path) return;
+    // Use hash-based link so GitHub Pages won't 404 on refresh
+    try {
+        const origin = window.location.origin.replace(/:\d+$/, '');
+        const shareUrl = origin + '/#' + path;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(shareUrl).then(() => {
+                alert('Article link copied to clipboard:\n' + shareUrl);
+            }).catch(() => {
+                prompt('Copy this link:', shareUrl);
+            });
+        } else {
+            prompt('Copy this link:', shareUrl);
+        }
+    } catch (e) {
+        const fallback = window.location.origin + '/#' + path;
+        prompt('Copy this link:', fallback);
+    }
 }
 
 function editArticle() {
