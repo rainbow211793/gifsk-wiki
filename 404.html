@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <meta http-equiv="refresh" content="0;url=/">
+  <title>Redirecting…</title>
+  <script>
+    // Redirect unknown URLs back into the SPA using hash routing so the app can handle the path.
+    (function(){
+      try {
+        var path = location.pathname || '/';
+        var search = location.search || '';
+        var hash = location.hash || '';
+        // Remove leading slash
+        if (path.charAt(0) === '/') path = path.slice(1);
+        var target = '/#' + path + search + hash;
+        // If root, just go to / (no hash)
+        if (!path || path === '') target = '/';
+        // Use replace so history isn't polluted
+        location.replace(target);
+      } catch (e) {
+        // Fallback: go to site root
+        location.replace('/');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting to the app… If you aren’t redirected, <a id="link" href="/">click here</a>.</p>
+  <script>document.getElementById('link').href = '/';</script>
+</body>
+</html>
