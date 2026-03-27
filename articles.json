@@ -20,5 +20,14 @@
         "value": "Nordvikian, Fjordheimic, Anglion and VT dialects"
       }
     ]
+  },
+  "Countries/united-kingdom-of-great-anglion": {
+    "path": "Countries/united-kingdom-of-great-anglion",
+    "title": "United Kingdom of Great Anglion",
+    "content": "United Kingdom of Great Anglion is the island nation between continents of Varna and Karyma. It is geographically considered inside the continent of Varna but more specifically North Varna [not to be confused with the north varna pact]. Unlike what most think, Anglion is actually not a continuation of Angland, while sharing the same name in the first 2 weeks of SL2, both nations are two different monarchies ruled by different dynasties and looking over different ethnic groups of people.",
+    "createdAt": "2026-03-27T23:12:30.371Z",
+    "lastModified": "2026-03-27T23:20:39.522Z",
+    "sidebarImage": "https://static.wikitide.net/slpediawiki/thumb/5/52/Anglion-flag.png/800px-Anglion-flag.png?20260327231955",
+    "sidebarFields": []
   }
 }
