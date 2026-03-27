@@ -1285,6 +1285,10 @@ function showCategories() {
     
     const list = document.getElementById('categoriesList');
     
+    if (categories.length === 0) {
+        list.innerHTML = '<p style="color: #a0b0d0; text-align: center; padding: 40px;">No articles yet</p>';
+        return;
+    }
     // Get category settings (custom names/emojis) from localStorage if available
     const categorySettings = JSON.parse(localStorage.getItem('gifskCategorySettings')) || {
         'gifstad': { name: 'Gifstad', emoji: '🏰' },
@@ -1293,12 +1297,7 @@ function showCategories() {
         'science': { name: 'Science', emoji: '🔬' },
         'general': { name: 'General', emoji: '📄' }
     };
-    
-    if (categories.length === 0) {
-        list.innerHTML = '<p style="color: #a0b0d0; text-align: center; padding: 40px;">No articles yet</p>';
-        return;
-    }
-    
+
     list.innerHTML = categories
         .sort()
         .map(name => {

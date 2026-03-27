@@ -181,6 +181,28 @@ function saveCategorySettingsAndReload() {
     if (tempDeletedCategories) tempDeletedCategories.forEach(d => { if (categorySettings[d]) delete categorySettings[d]; });
     saveCategorySettings();
 
+    // After saving category settings, update articles in admin localStorage to include display metadata
+    try {
+        loadArticles();
+        const stored = JSON.parse(localStorage.getItem('gifskArticles')) || {};
+        Object.keys(articles).forEach(path => {
+            const cat = path.split('/')[0];
+            if (categorySettings[cat]) {
+                const s = categorySettings[cat];
+                articles[path].categoryDisplay = s.name;
+                articles[path].categoryEmoji = s.emoji;
+                stored[path] = articles[path];
+            } else {
+                if (articles[path].categoryDisplay) delete articles[path].categoryDisplay;
+                if (articles[path].categoryEmoji) delete articles[path].categoryEmoji;
+                if (stored[path]) stored[path] = articles[path];
+            }
+        });
+        localStorage.setItem('gifskArticles', JSON.stringify(stored));
+    } catch (e) {
+        console.warn('Failed to persist category display into stored articles', e);
+    }
+
     // Clear temp session state
     tempCategorySettings = null;
     tempDeletedCategories = null;

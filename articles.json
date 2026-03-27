@@ -1,2 +1,24 @@
 {
+  "Lanuages/bjornomics": {
+    "path": "Lanuages/bjornomics",
+    "title": "Bjornomics",
+    "content": "Gifstadian is a **Teutonic language** originating in Gifstad. It was the most spoken language in the world in SL1 and SL2. It has many dialects in nations such as the The United Realms (UR for short), Anglion and Vinna Tyaja and Columbia. The Gifstadian language also has dialects in territories under Gifstad proper such as Nordvik and Fjordheim.",
+    "createdAt": "2026-03-27T22:44:21.378Z",
+    "lastModified": "2026-03-27T22:47:08.055Z",
+    "sidebarImage": "https://static.wikitide.net/slpediawiki/thumb/d/de/SL2GIFSTADLANMAP.webp/800px-SL2GIFSTADLANMAP.webp.png?20260131124254",
+    "sidebarFields": [
+      {
+        "label": "Language Family",
+        "value": "Teutonic"
+      },
+      {
+        "label": "Countries that spoke it",
+        "value": "The Commonwealth of Gifstad, United Realms, Anglion, Vinna Tyaja, Columbia"
+      },
+      {
+        "label": "Dialects",
+        "value": "Nordvikian, Fjordheimic, Anglion and VT dialects"
+      }
+    ]
+  }
 }
