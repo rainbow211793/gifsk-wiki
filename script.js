@@ -39,14 +39,16 @@ function loadArticles() {
         console.warn('Failed to load articles.json', e);
     }
     
-    // Admin: merge localStorage edits on top
-    if (IS_ADMIN_PAGE) {
-        try {
-            const stored = JSON.parse(localStorage.getItem('gifskArticles')) || {};
+    // If there are articles saved in localStorage (admin edits), merge them on top
+    // This makes admin-created articles visible on public pages when present.
+    try {
+        const storedRaw = localStorage.getItem('gifskArticles');
+        const stored = storedRaw ? (JSON.parse(storedRaw) || {}) : {};
+        if (stored && Object.keys(stored).length > 0) {
             base = Object.assign(base, stored); // localStorage overwrites articles.json
-        } catch (e) {
-            console.warn('Failed to load localStorage articles', e);
         }
+    } catch (e) {
+        console.warn('Failed to load localStorage articles', e);
     }
     
     articles = base;
@@ -482,7 +484,7 @@ function viewArticle() {
     if (_articleCategoryEl) _articleCategoryEl.className = 'category-tag';
     safeSetText('articleLastEdit', `Last edited: ${formatDate(article.lastModified)}`);
 
-    // Add/share button so users can copy a link that will open the SPA (hash-based)
+    // Add/share and quote buttons so users can copy a link or a quoted excerpt
     try {
         const header = document.querySelector('.article-header');
         if (header) {
@@ -499,6 +501,22 @@ function viewArticle() {
                 else header.appendChild(shareBtn);
             } else {
                 shareBtn.onclick = () => copyArticleLink(currentArticlePath);
+            }
+
+            // Quote button: copies a markdown blockquote with attribution, and inserts into editor if open
+            let quoteBtn = document.getElementById('quoteArticleBtn');
+            if (!quoteBtn) {
+                quoteBtn = document.createElement('button');
+                quoteBtn.id = 'quoteArticleBtn';
+                quoteBtn.className = 'btn btn-secondary';
+                quoteBtn.style.marginLeft = '8px';
+                quoteBtn.textContent = 'Quote';
+                quoteBtn.onclick = () => quoteArticle(currentArticlePath);
+                const meta2 = header.querySelector('.article-meta');
+                if (meta2) meta2.appendChild(quoteBtn);
+                else header.appendChild(quoteBtn);
+            } else {
+                quoteBtn.onclick = () => quoteArticle(currentArticlePath);
             }
         }
     } catch (e) {
@@ -823,8 +841,8 @@ function listArticles() {
 }
 
 function populateCategoryFilter() {
-    // Reload articles to get latest from localStorage
-    articles = JSON.parse(localStorage.getItem('gifskArticles')) || {};
+    // Ensure articles is populated from the canonical loader (articles.json + admin edits)
+    loadArticles();
     
     // Get all unique categories
     const categories = new Set();
@@ -860,8 +878,8 @@ function displayAllArticles(filter = '', categoryFilter = '') {
     
     console.log('displayAllArticles called');
     
-    // Make sure we have the latest articles
-    articles = JSON.parse(localStorage.getItem('gifskArticles')) || {};
+    // Make sure we have the latest articles from canonical loader
+    loadArticles();
     
     const paths = Object.keys(articles);
     console.log('displayAllArticles: Found', paths.length, 'articles');
@@ -1227,9 +1245,12 @@ function updateArgnSuggestions(query) {
     }
 
     list.innerHTML = combined.map(item => `
-        <li onclick="insertSuggestion('${encodeURIComponent(item.title)}', '${item.source}')" style="display: flex; justify-content: space-between;">
-            <span>${item.title}</span>
-            <span style="font-size: 11px; color: #5a7aaa;">${item.source === 'local' ? '📖' : '🔗'}</span>
+        <li style="display:flex; justify-content:space-between; align-items:center; padding:6px 8px;">
+            <div style="flex:1; cursor:pointer;" onclick="insertSuggestion('${encodeURIComponent(item.title)}', '${item.source}')">${item.title}</div>
+            <div style="display:flex; gap:8px; align-items:center;">
+                <span style="font-size: 11px; color: #5a7aaa;">${item.source === 'local' ? '📖' : '🔗'}</span>
+                <button type="button" onclick="${item.source === 'local' ? `quoteLocalByTitle('${encodeURIComponent(item.title)}')` : `quoteArgnSuggestion('${encodeURIComponent(item.title)}','${item.slug || ''}')`}" style="font-size:11px; padding:2px 6px;">Quote</button>
+            </div>
         </li>
     `).join('');
 }
@@ -1445,6 +1466,99 @@ function formatDate(dateString) {
 function truncate(str, length) {
     if (!str) return '';
     return str.length > length ? str.substring(0, length) + '...' : str;
+}
+
+// ----------------- Quoting helpers -----------------
+function getExcerptFromContent(content, maxLen = 240) {
+    if (!content) return '';
+    // Remove code blocks and simple markdown tokens for a cleaner excerpt
+    let plain = content.replace(/```[\s\S]*?```/g, '')
+                       .replace(/`[^`]*`/g, '')
+                       .replace(/\[(.*?)\]\([^)]*\)/g, '$1')
+                       .replace(/[#>*_~]/g, '')
+                       .trim();
+    // Use first paragraph if available
+    const parts = plain.split(/\n\s*\n/);
+    const first = (parts[0] || plain).replace(/\s+/g, ' ').trim();
+    return truncate(first, maxLen);
+}
+
+function copyToClipboard(text) {
+    try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            return navigator.clipboard.writeText(text);
+        }
+    } catch (e) {}
+    // Fallback
+    try {
+        prompt('Copy the following text:', text);
+        return Promise.resolve();
+    } catch (e) {
+        return Promise.reject(new Error('Copy failed'));
+    }
+}
+
+function buildQuoteMarkdown(excerpt, title, url, sourceLabel) {
+    const q = excerpt.replace(/\n/g, '\n> ');
+    const label = sourceLabel ? ` (${sourceLabel})` : '';
+    return `> ${q}\n\n— [${title}](${url})${label}`;
+}
+
+function insertQuoteIntoEditor(markdown) {
+    const textarea = document.getElementById('editContent') || document.getElementById('newContent');
+    if (!textarea) return false;
+    const start = textarea.selectionStart || textarea.value.length;
+    const before = textarea.value.slice(0, start);
+    const after = textarea.value.slice(start);
+    textarea.value = before + markdown + '\n\n' + after;
+    textarea.focus();
+    const pos = before.length + markdown.length + 2;
+    textarea.selectionStart = textarea.selectionEnd = pos;
+    // update markdown preview/source if present
+    const mdSource = document.getElementById('articleMarkdownSource');
+    if (mdSource) safeSetText('articleMarkdownSource', textarea.value);
+    return true;
+}
+
+function quoteArticle(path) {
+    if (!path) return;
+    const article = articles[path];
+    const title = article ? (article.title || path) : path;
+    const excerpt = article ? getExcerptFromContent(article.content || '') : title;
+    const origin = window.location.origin.replace(/:\d+$/, '');
+    const url = article ? (origin + '/#' + path) : (origin + '/#' + path);
+    const md = buildQuoteMarkdown(excerpt, title, url, 'Gifsk Wiki');
+    copyToClipboard(md).then(() => {
+        alert('Quote copied to clipboard!');
+    }).catch(() => {
+        prompt('Quote (copy manually):', md);
+    });
+    // If editor is open, insert quote there as well
+    insertQuoteIntoEditor(md);
+}
+
+function quoteArgnSuggestion(encodedTitle, slug) {
+    const title = decodeURIComponent(encodedTitle);
+    const slugSafe = slug || title.trim().toLowerCase().replace(/\s+/g, '-');
+    const url = `https://argn.quest/wiki/${encodeURI(slugSafe)}`;
+    const excerpt = title; // no remote content available, use title
+    const md = buildQuoteMarkdown(excerpt, title, url, 'Argn');
+    copyToClipboard(md).then(() => {
+        alert('Argn quote copied to clipboard!');
+    }).catch(() => {
+        prompt('Quote (copy manually):', md);
+    });
+    insertQuoteIntoEditor(md);
+}
+
+function quoteLocalByTitle(encodedTitle) {
+    const title = decodeURIComponent(encodedTitle);
+    const article = Object.values(articles).find(a => a.title === title);
+    if (article && article.path) {
+        quoteArticle(article.path);
+    } else {
+        alert('Local article not found for quoting');
+    }
 }
 
 function addRecentChange(text) {
