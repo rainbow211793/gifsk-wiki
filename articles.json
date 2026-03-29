@@ -1,7 +1,7 @@
 {
-  "Lanuages/bjornomics": {
-    "path": "Lanuages/bjornomics",
-    "title": "Bjornomics",
+"Lanuages/gifsklang": {
+    "path": "Lanuages/gifsklang",
+    "title": "The Gifstadian Lanuage",
     "content": "Gifstadian is a **Teutonic language** originating in Gifstad. It was the most spoken language in the world in SL1 and SL2. It has many dialects in nations such as the The United Realms (UR for short), Anglion and Vinna Tyaja and Columbia. The Gifstadian language also has dialects in territories under Gifstad proper such as Nordvik and Fjordheim.",
     "createdAt": "2026-03-27T22:44:21.378Z",
     "lastModified": "2026-03-27T22:47:08.055Z",
@@ -19,7 +19,9 @@
         "label": "Dialects",
         "value": "Nordvikian, Fjordheimic, Anglion and VT dialects"
       }
-    ]
+    ],
+    "categoryDisplay": "Lanuages",
+    "categoryEmoji": "💬"
   },
   "Countries/united-kingdom-of-great-anglion": {
     "path": "Countries/united-kingdom-of-great-anglion",
@@ -28,6 +30,115 @@
     "createdAt": "2026-03-27T23:12:30.371Z",
     "lastModified": "2026-03-27T23:20:39.522Z",
     "sidebarImage": "https://static.wikitide.net/slpediawiki/thumb/5/52/Anglion-flag.png/800px-Anglion-flag.png?20260327231955",
-    "sidebarFields": []
+    "sidebarFields": [],
+    "categoryDisplay": "Countries",
+    "categoryEmoji": "🏳"
+  },
+  "Provinces/nordvik": {
+    "path": "Provinces/nordvik",
+    "title": "Nordvik",
+    "content": "Nordvik is a province of Gifstad and also a City that lies on multiple provinces including Nordvik proper [provinces include Lyngstua and Dovrebekk]. The province is one of the most populated provinces excluding Helligstad what it ties with in total population. The province has long lasting influences upon Gifstad such as it's appearance in SL2 primarily as \"Deneb\" and an autonomous region of The Gifsk Commonwealth.\n\n## Geographic Location\nNordvik is situated North West of Gifstad and disconnected from the mainland only linked via oceans. The Island is also considered a \"rectangle\" when compared onto actual maps. This is due to it's very Rectangle like appearance from an outsider's view. The only other landmass not belonging to Gifstad near Nordvik used to belong to Nitvas however the annexation of western lands of Nitvas made Nordvik surrounded by Gifsk lands.",
+    "createdAt": "2026-03-28T14:01:16.356Z",
+    "lastModified": "2026-03-28T14:01:16.356Z",
+    "sidebarImage": "",
+    "sidebarFields": [],
+    "categoryDisplay": "Provinces",
+    "categoryEmoji": "📍"
+  },
+  "People/rainbow-lolcat": {
+    "path": "People/rainbow-lolcat",
+    "title": "Rainbow Lolcat",
+    "content": "Rainbow lolcat was one of the many gifstadians before the 'great migration crisis' of gifstad. He was introduced into gifstad by sebisuper9mil who cared for the orphan who had no other place to go. He spent his life studying gifstad and was always striving for gifstad's growth. He also took a career in economics seeing gifstad as his father-figure who he would tend to in his later days.\n\n# Early Life in SL0\nIn SL0, rainbow had deep monarchist views believing the deposition of the monarchy was illegal and that a poll was needed for a restoration of the monarchy. He with GuiM2 would work together via the political party the \"Libcons\" who are often an overlooked SL0 that didn't run in many elections after SL0 and considered close allies to the Conservative party led by Stefan neerkawl, the second king of Gifstad who was deposed.  \n\n# Faith\nWhen he grew up up he became a devote sealist and worked hard to climb the ranks and become a arch-bishop. He also protected sealists from many persecutions in gifstad due to his small-time influence there. That would soon change.\n\n# GEU's creation\nInitially, rainbow a long with new migrants created the etterretningsforeningsklubb or \"ESK\" for short. It was intended as a intelligence agency to collect important information but the agency was short lived. Rainbow changed its goals constantly until he settled for something. \n\nHe then make the Nordvik group where he would use all the wealth he made into a super-company. He then merged with the GEU [Gifstadian Economic Union] to make the GEU [The same name] being the head of operations there in exchange of keeping the name of their rivals.\n\n# LOW\nLater on, rainbow still kept onto his wealthy image, even founding the LOW [League of Wealth] with many other GEU members but the party was led by Golixmany who became Prime Minister in a historic coalition with the SDPG [Social Democratic Party of Gifstad]. When Golix became PM however, golix was proposed union with Solaris but even with public support he was later pressured into backing off and in consequence leaving LOW to be lead by rainbow.\n\n# Scandals\n### Ninja scandals\nWhen in the GEU, rainbow was prompted by a sketchy member to join a discord server that later was revealed to be a plot to be murder sitting prime minister sebisuper9mil. Although rainbow did not see any planning and left the sketchy server promptly after. However when investigators found rainbow had previously joined the server, they assumed he was a part of the plot and tried to arrest him. He was evidently furious and led an investigation against the criminals to prove his innocence.\n\n### Nordgate\nAnother case involving rainbow was \"Nordgate\" what was a document that accused rainbow and GEU members of plotting a coup. While rainbow led a \"coup\" it was a riot to lower taxes. This document however accused rainbow and other highly profiled GEU members of attempting to control the Gifstadian parliament. The document initiated an investigation by sitting prime minister sebisuper9mil who checked through the GEU's private channels and prompted rainbow to ban sebi for looking through secretive information of the GEU. When this happened, rainbow was threatened by sebisuper9mil to let him back in or he would reveal the private link to the GEU's server. Rainbow retorted back that he would close off the server from invites if that happened.\n\nHowever, under pressure from his peers in the GEU, rainbow allowed sebisuper9mil to continue. While some evidence was extracted, most of it was discredited as out of context or clearly internal jokes from GEU members [such as a screenshot taken by sebisuper9mil of eee saying quote \"Yes [line break] When we take control and kill democracy\"]. \n\nBoth scandals turned public favor of the GEU and thus LOW that had to be distanced from the GEU for it's own sake however nothing legal perused due to the claims of the \"coup planning\" being discredited as mentioned earlier. \n\n# Judaical career\nRainbow following accusations of plotting against sitting PM of Gifstad, Sebisuper9mil decided to prove his innocence by proving guilt of the criminals. He then headed operations to trial the nationalists who attempted to attack sebi - his closest to family except Gifstad [due to the fact sebi fostered him as an orphan in SL0]. All nationalists were trialed guilty.\n\nHe then later on became a supreme judge, trialing criminals such as Bear [someone who did modern slavery to his workers] and reformed the gifstad parliament using the low party formed but not headed by him [well once headed].\n\n# Death\nJust like other influential Gifstadians, rainbow would die at the hands of the First Nitvas Meteor that destroyed a big chunk of Nitvas. He hid his money and wealth in Nordvik, lands that would be inside SL2 deneb. While the treasurer was never found a long with Ninja's teeth what was stored in it, it is still one of the biggest hidden treasures.",
+    "createdAt": "2026-03-28T14:38:41.386Z",
+    "lastModified": "2026-03-28T15:22:35.789Z",
+    "sidebarImage": "https://file.garden/aVg4wWHpj1W4fShD/more/rainbowsl0-2.webp",
+    "sidebarFields": [
+      {
+        "label": "Nationality",
+        "value": "Gifstadian"
+      },
+      {
+        "label": "Parents",
+        "value": "Unknown"
+      },
+      {
+        "label": "Spouse",
+        "value": "None"
+      },
+      {
+        "label": "Faith",
+        "value": "Sealism"
+      }
+    ],
+    "categoryDisplay": "People",
+    "categoryEmoji": "🧑"
+  },
+  "People/golix-von-many": {
+    "path": "People/golix-von-many",
+    "title": "Golix von Many",
+    "content": "Golix was part of the first wave of the immigration crisis, in his case he was wandering the globe in search for a place to settle. Until [rainbow21173](https://gifsk.wiki/#People/rainbow-lolcat) found and invited him to Gifstad, this sparked the beginning for Golix.\n\n# Early Life\nYear 1, this was a rather chaotic time where Golix decided to live in Skattvakt a city in southern Gifstad. Golix was rather \"poor\" upon arrival and struggled to come by sparking his motivation for money, due to these struggles golix wanted no other to struggle for money and decided that Gifstad needed to be rich.\n\n# Founding of the modern GEU\nYear 2, Golix founded the Gifstad Economic Union  to improve the economy by making companies work together, though he was not the only one as rainbow lolcat felt the same and made the Nordvikian group with rather the same goal. Due to this they united to make the Gifstad Economic Union and sparked the original economic boom.\n\n# LOW\nAfter the \"merger\" of GEU Golix was also introduced to the League of Wealth a  political representation of the economic dream. Rather soon Golix took charge of LOW and entered politics, the first elections with the help of LOW was a success allowing Golix the position of Economic minister and grow the economy. After this he barely managed to become Prime minister the elections after, reaching his peak. The rest was only downhill however.\n\n# LOW's shortcoming\nWhen golix became ruler, he was one the few people to become Prime Minister of Gifstad in SL1, he was eager and showing people the halls of Ruler chat but he made a mistake. Golix was offered by Hero II of Cyrusean to union with his domain of Solaris. Golix decided to poll with the population a majority actually agreed to the union.\n\nHowever, Golix's decision despite public approval was met with outcry from all sides especially a new faction called the NRC [National Republican Coalition] with a strong voice [Lementation, a refugee from Stockstrand] who used LOW's weakness and also SDPG being associated to their advantage and won the election by a historic landslide. This caused Goli's abdication from chairman of LOW and quietened down his involvement in the GEU. ",
+    "createdAt": "2026-03-28T17:00:01.664Z",
+    "lastModified": "2026-03-28T17:30:17.632Z",
+    "sidebarImage": "https://file.garden/aVg4wWHpj1W4fShD/more/golixoldpfp.webp",
+    "sidebarFields": [
+      {
+        "label": "Siblings",
+        "value": "Paradise N"
+      },
+      {
+        "label": "Born",
+        "value": "Year 0, start of SL1"
+      },
+      {
+        "label": "Death",
+        "value": "???"
+      }
+    ],
+    "categoryDisplay": "People",
+    "categoryEmoji": "🧑"
+  },
+  "People/brrreadi-breadman-gifstadian-politician": {
+    "path": "People/brrreadi-breadman-gifstadian-politician",
+    "title": "Brrreadi Breadman | Gifstadian Politician",
+    "content": "# General Info\n\n**Brrreadi Breadman** (Gifstadian **Brrrødi Brødmann** ⓘ; Day X – 17 Febuary Year 20) was a Gifstadian politician who served as the **governor of Lyngstua** and as the leader of the **(FAR) Fatherland** (previously known as the Smart Voting) from 10th of July Year 2 until **his death in Year 20**. Before his independent campagin in politics, he served as as member of the **League of Wealth**, while also being one of the founding members and later as the head of marketing for the **Gifstad Economic Union** (Previously known as the Nordvikkian Group) and also as the head of the **NORDCON Group** until his death due to an assassination.\n\n# Early Life\n\nDue to Brrreadi refusing to provide a factual date of his birth, only speculations can be made. Born somewhere in **Helligstad**, lived and studied in the city. During the **Migrant Crisis**, he alongside a group of future GEU founders moved to the city of Nordvik in case of a **coup and/or a nationalist takeover**. Not long after, he formed the **Nordvikkian Broadcasting Group** and the **NORDTECH Private Civilian-Military Technological Conglomerate**.\n\n# Career in politics\n\nAfter a major vote within the GEU to form the **League of Wealth**, he himself alongside multiple other members of the group joined the political party. His membership in LoW served for not a long time as after the political party proposed a coalition with **SDPG**. Due to his historical fights and differences, usually in relation to the Migration Crisis and bad management during it, he decided to leave the party for **\"the better future of this whole group\"**. During the times without a party, Brrreadi served as a major propagandist against monarchist and anti-democratic groups within Gifstad and outside of it, later the idea being called **Breadism **built on hatred for any kinds of authoritarianism and beliefs in a ultra democratic process. On 10th of July Year 2, he decided to officially form the **Smart Voting Initiative**, a centrist republicanist big-tent, with the idea to gain as many votes from supporters of **SDPG** and the **Conservative Party (Now GNEP)**. The original start was seen terribly, mainly due to the radical methods of marketing to gain voters, going as far to call SDPG \"NSDAP\" and label the Conservative Party as being anti-democratic and extremely authoritarian. After gaining only 4% in the **12/27 Gifstadian Parliamentary Elections** he decided to rebrand the political party into what now is known as the **\"Fatherland - Allied Republic\"** (known also as the \"Fatherland\" or \"(FAR) Fatherland\", his new rebrand had allowed for the party to gain some traction from the community within Gifstad. During this time, he appointed **Commanzerhanz **as the Head of the Party Committee. This propelled the party forward by enough points to be known as one of the more major politicians in Gifstad, solely due to the fact as he was the only opposition party in the nation. During the **1/3 Gifstad Parliamentary Elections** his party managed to secure 5% of the votes, still out of the coalition.\n\n# Breadism\n\nWhile **Breadism** was never publicly named by him, the idea involved around following the plans of the **Brrreadi Doctrine**, a political ideology based on a mix of **ultra democracy **and strong **anti-authoritarianism**, which proposes a decentralized **confederate-style** democracy in which every idea is put into a form of **dialogue **between those that support in and those that are against to find a common compromise. The idea also supports **jinogist **interventionism against nations that are authoritarian and pose a threat to national sovereignty. The name itself was first seen used by ex-supporters of the **Fatherland Party** after his death.\n\n# First Coalition\n\nSomewhere on 17 July Year 17, talks between Brrreadi and **Salmon**, Head of the Party Committee were formed to possibly establish a coalition-party between (FAR) Fatherland and **Liberal-Conservative Party**. After some talks, the Chairman of the LCP **Gui **agreed on establishing a coalition-party, now known as the **National Republican Coalition** which later also included the **National Republican Alliance**, a party formed by **Transcended**. Later on July of Year 19, he was appointed as **governor of Lyngstua** due to him being the only government member from this region and also due to the upcoming regional reform.\n\n# Death\n\nOn 17 of Febuary Year 20, exactly three years after first coalition talks begun, Brrreadi alongside tons of other politicians and family members attended the **funeral of V.M. Stefan Neerkawl**. Before the funeral, Brrreadi had made jokes surrounding the death of Stefan, saying \"Partying in Gifstad\". During the funeral however, he expressed remorse, giving his apologies to the Neerkwal family, mainly Stefan and Bjorn. As the funeral ended, Brreadi alongside **Transcended **and **Partisan **were killed after reportedly a \"thor-like hammer\" struck them down, causing major damage and for the viking ship the funeral was held to sink. The government of Gifstad has refused to further continue investigations, based on lack of evidence and at that time ongoing elections. Later reports have came in that both Transcended and Partisan survived as they both hired **body doubles** to avoid going themselves to the funeral. However due to lack of any concrete proof and the fact that the ship that sank is missing, bodies of Brreadi and possibly Transcended and Partisan cannot be put onto an autopsy. **Funeral without a body** was held in his at that time home state of Lyngustia. Due to him never sharing any info detailing his family, possibly them being dead, it was only attended by members of his party and local supporters.\n\n# Conspiracies about the event\n\nDue to the nature surrounding the whole event, many **conspiracy theories** have been formed by minds of thousands. One of the most popular one, often being cited as truth and being spread by **pro-Neerkwalist media**, the cause of death is **revenge of Thor** for the anti-Neerkwalist comments made by the victims of the attack. This claim is also spread due to the lack of the wreckage of the ship. It is most possibly that it had been towed by **Cosair pirates** which are active in the region. After death of Brrreadi, numerous people reported seeing sights of his **ghost **roaming and talking to people. However due to the unnatural occurrence of the event and fact that it had been seen internationally, it is likely just a joke said once too many times. Around couple of months after the death of Brrreadi, a letter appeared at the doorstep of the **House of Neerkwalists** coming from Brrreadi to **Bjorn**. The mail itself has not been released and the house refuses to comment on the event. It is likely just a possible troll made by a member of the FAR party (due to the official party seal being on the mail) but due to the unusual action of the house, it is unknown if it was really Brrreadi or not.\n\n# Post-Death events\n\nAfter the de-jure death of Brrreadi, the wealth was repurposed by the **government of Gifstad** and all his properties were put on the free market to be sold. His corporations, both the **Nordvikkian Broadcasting Group **and **NORDTECH Private Civilian-Military Technological Conglomerate** were originally put under a management by a council, mandated by the **Gifstad Economic Union**. On 3rd of August Year 20, both corporations declared that they would be acquired under a new management. NORDTECH went to **Echo**, a major Gifstadian military designer while NBG went to **Salmons**, current **Prime Minister of Gifstad**. His monetary and **stock** wealth were given to his **coalition members** as he had not written a will.\n\n# Re-emerging\n\nWhen the **doomsday event** begun, the politician Brrreadi himself re-emerged in **Lyngstua**. He informed that all the time he was alive, just that he went into hiding. With the **world ending** he and some of his supporters went to his **grave site** and celebrated the end together like a good family.",
+    "createdAt": "2026-03-28T17:45:40.764Z",
+    "lastModified": "2026-03-28T18:05:18.600Z",
+    "sidebarImage": "https://file.garden/aVg4wWHpj1W4fShD/more/oldbreadipfp.webp",
+    "sidebarFields": [
+      {
+        "label": "Born",
+        "value": "Day X, Helligstad Gifstad"
+      },
+      {
+        "label": "Nationality",
+        "value": "Gifstadian"
+      },
+      {
+        "label": "Cause of Death",
+        "value": "Murder"
+      },
+      {
+        "label": "Died",
+        "value": "17th February, Year 20 Helligstad Gifstad"
+      }
+    ]
+  },
+  "People/visonaruisa-maria-pera-botarte-the-2nd": {
+    "path": "People/visonaruisa-maria-pera-botarte-the-2nd",
+    "title": "Visonaruisa Maria Pera-Botarte the 2nd",
+    "content": "Maria II of Columbia was a Columbian political and military figure who became the nation’s final Visonariusa, serving as its monarch following the death of her predecessor. Initially appointed Admiral of the Navy, she later assumed the role of Prime Minister before rising to supreme leadership. Her rule was marked by a largely neutral and stable foreign policy, emphasizing internal development and cautious diplomacy during a formative period in Columbia’s history.\n\n# Admiral life\nIn their early life as a Columbian, Maria was allowed to pursue a career in the Columbian navy. She never engaged in actual warfare but the skills learnt as an admiral proved useful for later paths in her life. It would be a key factor in her campaigning for Prime Minister and facilitating consistently the **biggest** navy in SL2 for a time.\n\n# Political Career\nMaria II’s political career began during the early formation of Columbia, when she entered the nation’s first prime ministerial election and became Prime Minister by default. During her time in office, she was noted for consulting citizens on major decisions and maintaining a cautious, stability-focused approach to governance even when tensions with the Suralic Federation, United Realms and Gifstad was high. \n\n# Life as Monarch\nWhen Visonaruisa Maria Pera the first of Columbia died due to cancer, Maria II of Columbia ascended to the throne as queen. Her rule oversaw the biggest economic increases that an SL nation has ever experienced with an approximated 9,181.36% GDP jump from 18 billion to 1,670,645,292,979.95.",
+    "createdAt": "2026-03-29T19:29:33.446Z",
+    "lastModified": "2026-03-29T20:34:28.884Z",
+    "sidebarImage": "https://file.garden/aVg4wWHpj1W4fShD/more/mariaSL2pfp.webp",
+    "sidebarFields": [
+      {
+        "label": "Parents",
+        "value": "Nationalist [Father + Gus [Mother]"
+      },
+      {
+        "label": "Nationality",
+        "value": "Columbian"
+      }
+    ]
   }
 }
