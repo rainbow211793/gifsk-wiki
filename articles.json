@@ -167,5 +167,23 @@
     "lastModified": "2026-03-30T21:18:02.864Z",
     "sidebarImage": "",
     "sidebarFields": []
+  },
+  "Organization/rainbow-air": {
+    "path": "Organization/rainbow-air",
+    "title": "Rainbow Air",
+    "content": "Rainbowtz Air is a multinational Gifstadian air travel company that primarily used Blimps. It's operations were based inside Rainbowtz Island with it's first and second to last CEO, Rainbowtz Fern Neerkawl the second. It was the first, biggest and most commercially pushed blimp based transport system but not being the first to invent the common blimp, with that title going to the Suralic Federation.\n\n# Beginnings\nRainbowtz island started when Rainbowtz saw Elysians inventing trains and him wanting to create something like that. He initially invented the tram line that would be used substantially in Rainbowtz Island along with train networks overground and underground. However, Rainbowtz knew his implementation of trams was not ambitious enough. He wanted something groundbreaking.\n\nThis is where Rainbowtz decided to create the first blimp. It was a found success and rainbow worked on more until he perfected the design [Blimp Level 2]. He would then use these blimps to create Rainbowtz Air, the first and only commercial airline in Bugarian and Gifstadian history. The airline initially only operated between Rainbowtz island and Gifstad, this was probably due to problems with previous methods of transport between the mainland and Rainbowtz Island. Rainbowtz Island was an instant success due to it's relative ease in transport across two populated centers. Helligstad itself had 4 airports and 41 unique aiports across the world\n\n# Usage in 2GNW\nWhen Gifstad had a massive coalition of nations against it and their ally of Severmarque the world called it doomed. However, Lementation Isvegr contracted Rainbowtz Air's blimps and armed them with bombs. These blimps would later be called \"Gifstadian Sky Devils\". The blimps sucessfull damaged a fort on the frontlines but no other major loses were due to the blimps.\n\n# The seizure of airfields by Stockstrand\nDue to the actions of Blimps in 2GNW along with Stockstrand's need to recover money from 2GNW, Stockstrand's leader Bartblox seized all airfields inside of Stockstrand but was unable to man them. This was due to all staff being Gifstadians who returned to their home and the fact it was mostly just a command center along with grassland and a few buildings for customers to wait for their blimps in.\n\n# Mass purchase of Blimps\nCountries in the coalition such as elysia seen the technology decided to buy the tech from the Suralic Federation and this decision however was considered a waste. This was due to their later surrender and slow mobilization of the blimps to effectively use them in the front line. Another factor to consider the blimps wasteful was the misuse of them by Teutonik high command under Elysian guidance. \n\n# Gradual switch to planes\nWith Reconnaissance aircraft being invented, rainbow decided to employ a tactic of purchasing massive amounts of newly made simple planes to turn commercial. Rainbowtz air transitioned from a blimp based customer base to more plane like. This switch however was halted by the fact the CEO of rainbowtz air died and his son moved to Columbia, making it unpractical for a big push. The last nail in the coffin was the 2nd Nitvas meteor that led to the destruction of practically everything.",
+    "createdAt": "2026-03-31T10:33:15.555Z",
+    "lastModified": "2026-03-31T10:38:02.496Z",
+    "sidebarImage": "",
+    "sidebarFields": [
+      {
+        "label": "Countries operated in",
+        "value": "Gifstad, United Realms, Stockstrand, Suralic federation and Varvenia"
+      },
+      {
+        "label": "Peak amount of Blimps used",
+        "value": "1330"
+      }
+    ]
   }
 }
